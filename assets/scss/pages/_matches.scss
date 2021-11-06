@@ -1,29 +1,5 @@
-.theme--dark.v-application {
-  background-color: white !important;
-  color: black !important;
-}
-
-.v-carousel {
-  height: 350px !important;
-  width: 600px !important;
-  border-radius: 5px;
-}
-
 .matches {
-  &__info {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-top: 30px;
-
-    &-text {
-      max-width: 300px;
-      text-align: center;
-    }
-  }
-
-  &__slider-image {
-    height: 350px;
-    width: 600px;
+  &__container {
+    padding: 0 20px;
   }
 }
