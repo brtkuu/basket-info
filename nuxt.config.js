@@ -22,16 +22,21 @@ export default {
     '~/assets/scss/main.scss'
   ],
   plugins: [
+    '~/plugins/axios.js'
   ],
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv'
   ],
   modules: [
     '@nuxtjs/axios'
   ],
-  axios: {},
+  axios: {
+    baseURL: 'https://api-nba-v1.p.rapidapi.com',
+    https: true
+  },
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
