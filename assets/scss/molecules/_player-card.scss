@@ -1,0 +1,45 @@
+.player-card {
+  &__container {
+    border: 1px solid rgba(53, 53, 53, 0.5);
+    height: 300px;
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: $card-shadow;
+    position: relative;
+  }
+
+  &__image {
+    height: 120px;
+    width:  80px;
+  }
+
+  &__column {
+    height: 100%;
+    width: 45%;
+  }
+
+  &__fullname {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  &__favorite {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  &__info {
+    font-size: 16px;
+    margin-bottom: 10px;
+
+    &-title {
+      font-weight: 900;
+    }
+  }
+}

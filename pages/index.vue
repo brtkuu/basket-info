@@ -35,6 +35,7 @@
           v-for="team in teams"
           :key="team.id"
           class="home__logo-block"
+          @click="$router.push(`/team/${team.id}`)"
       >
         <img
             :src="team.logo"

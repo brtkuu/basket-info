@@ -15,6 +15,10 @@
 // pages
 @import './pages/home'; 
 @import './pages/matches';
+@import './pages//teams';
 
 // components
 @import './components/navbar';
+
+// molecules 
+@import './molecules/player-card';
