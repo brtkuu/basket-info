@@ -1,6 +1,6 @@
-const config = ({ $axios, app, store }) => {
+const config = ({ $axios, $config, app, store }) => {
   $axios.onRequest((config) => {
-    config.headers.common['x-rapidapi-key'] = process.env.API_KEY;
+    config.headers.common['x-rapidapi-key'] = $config.API_KEY;
   });
 };
 

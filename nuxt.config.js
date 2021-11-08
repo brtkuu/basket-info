@@ -60,5 +60,8 @@ export default {
   },
   dotenv: {
     systemvars: true
+  },
+  publicRuntimeConfig: {
+    API_KEY: process.env.API_KEY,
   }
 }
