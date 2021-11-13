@@ -1,0 +1,25 @@
+.team-stats {
+  &__container {
+    margin-bottom: 20px;
+    min-width: 700px;
+    overflow-x: scroll;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    justify-items: center;
+    align-items: center;
+    padding: 10px;
+    background-color: $nba-red;
+    color: white;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    justify-items: center;
+    align-items: center;
+    padding: 10px;
+  }
+}

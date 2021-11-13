@@ -1,6 +1,6 @@
 <template>
   <div class="player-card__container">
-    <div class="player-card__column">
+    <div class="player-card__column player-card__column-image">
       <img
           :src="`${photoUrl}${player.lastName.substring(0, 5).toLowerCase()}${player.firstName.substring(0, 2).toLowerCase()}01.jpg`"
           class="player-card__image"
@@ -8,6 +8,8 @@
       <p class="player-card__fullname">
         {{ player.firstName }} {{ player.lastName }}
       </p>
+    </div>
+    <div class="player-card__column">
       <p class="player-card__info">
         <span class="player-card__info-title">Birth date:</span> {{ player.birthDate }}
       </p>
@@ -17,8 +19,6 @@
       <p class="player-card__info">
         <span class="player-card__info-title">Country:</span> {{ player.country }}
       </p>
-    </div>
-    <div class="player-card__column">
       <p class="player-card__info">
         <span class="player-card__info-title">Height:</span> {{ player.height }} m
       </p>
@@ -35,7 +35,14 @@
         <span class="player-card__info-title">College:</span> {{ player.college }}
       </p>
       <i
+          v-if="favorites"
+          class="fas fa-star fa-3x player-card__favorite"
+          @click="$emit('removeFromFavorites', player.id)"
+      />
+      <i
+          v-else
           class="far fa-star fa-3x player-card__favorite"
+          @click="$emit('addToFavorites', player.id)"
       />
     </div>
   </div>
@@ -46,6 +53,10 @@ export default {
   props: {
     player: {
       type: Object,
+      required: true
+    },
+    favorites: {
+      type: Boolean,
       required: true
     }
   },
