@@ -37,10 +37,12 @@
           class="home__logo-block"
           @click="$router.push(`/team/${team.id}`)"
       >
-        <img
-            :src="team.logo"
-            class="home__logo"
-        >
+        <div class="home__logo-container">
+          <img
+              :src="team.logo"
+              class="home__logo"
+          >
+        </div>
         <p>{{ team.name }}</p>
       </div>
     </div>

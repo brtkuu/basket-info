@@ -5,4 +5,35 @@
     justify-content: space-evenly;
     gap: 15px;
   }
+
+  &__info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+
+    &-image {
+      height: 200px;
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        object-fit: contain;
+        max-width: 200px;
+        max-height: 200px;
+      }
+    }
+
+    &-name {
+      width: 100%;
+      text-align: center;
+    }
+
+    &-section {
+      padding: 0 20px;
+      margin: 20px 0 10px 0;
+    }
+  }
 }

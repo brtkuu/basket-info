@@ -45,8 +45,17 @@
   }
 
   &__logo {
-    height: 150px;
-    width: 150px;
+    max-height: 150px;
+    max-width: 150px;
+    object-fit: contain;
+
+    &-container {
+      width: 150px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     &-block {
       display: flex;
