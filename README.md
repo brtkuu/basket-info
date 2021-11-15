@@ -1,1 +1,5 @@
 # BasketInfo
+
+# start
+
+npm install
