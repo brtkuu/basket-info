@@ -13,21 +13,21 @@
           class="matches__single-match"
       >
         <div>
-          <a :href="`/team/${match.hTeam.id}`">
+          <nuxt-link :to="`/team/${match.hTeam.id}`">
             <img
                 class="matches__team-logo"
                 :src="match.hTeam.logo"
             >
-          </a>
+          </nuxt-link>
           <p>{{ match.hTeam.shortName }}</p>
         </div>
         <div>
-          <a :href="`/team/${match.vTeam.id}`">
+          <nuxt-link :to="`/team/${match.vTeam.id}`">
             <img
                 class="matches__team-logo"
                 :src="match.vTeam.logo"
             >
-          </a>
+          </nuxt-link>
           <p>
             {{ match.vTeam.shortName }}
           </p>
