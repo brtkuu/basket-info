@@ -1,0 +1,51 @@
+.date-picker {
+  &__container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 10px;
+
+    @media (max-width: 675px) {
+      gap: 5px;
+    }
+  }
+
+  &__nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    color: $nba-red;
+    font-size: 32px;
+
+    @media (max-width: 675px) {
+      font-size: 20px;
+    }
+  }
+
+  &__day {
+    padding: 5px;
+    border: 1px solid black;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 3px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 1s, color .5s;
+
+    &--active {
+      @extend .date-picker__day;
+      background-color: $nba-blue;
+      color: white;
+    }
+
+    &:hover {
+      background-color: $nba-blue;
+      color: white;
+    }
+
+    @media (max-width: 675px) {
+      font-size: 12px;
+    }
+  }
+}
