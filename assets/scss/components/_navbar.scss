@@ -27,6 +27,7 @@
     color: white;
     gap: 20px;
     transition: 0.5s;
+    overflow: hidden;
 
     a {
       color: white;
@@ -40,14 +41,13 @@
 
     @media (max-width: 1200px) {
       position: absolute;
-      display: flex;
+      display: none;
       flex-wrap: wrap;
       background-color: $nba-red;
       top: 88px;
       right: 0px;
       width: 280px;
       padding: 10px;
-      transform: translateX(calc(280px));
       z-index: 9999;
 
       a {
@@ -57,7 +57,7 @@
     }
 
     &--show {
-      transform: translateX(0%);
+      display: flex;
     }
   }
 
