@@ -48,6 +48,7 @@
       width: 280px;
       padding: 10px;
       transform: translateX(calc(280px));
+      z-index: 9999;
 
       a {
         text-align: center;
