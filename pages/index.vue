@@ -63,7 +63,7 @@ export default {
     return {
       carousel: 0,
       photos: [
-        'https://digitalsport.co/wp-content/uploads/2015/10/5181495847_420a196713_o.jpg',
+        'https://digitteamsalsport.co/wp-content/uploads/2015/10/5181495847_420a196713_o.jpg',
         'https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_1300/v1613386565/yqq5ue9us6dw5ybdx47i.jpg',
         'https://cdn-wp.thesportsrush.com/2019/10/GettyImages-1070852540.jpg'
       ],

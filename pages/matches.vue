@@ -1,5 +1,5 @@
 <template>
-  <div class="mathces__container">
+  <div class="matches_container">
     <h1>Matches</h1>
   </div>
 </template>
