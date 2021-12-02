@@ -9,7 +9,7 @@
         BasketInfo
       </span>
     </div>
-    <div class="navbar__links">
+    <div :class="{'navbar__links': true, 'navbar__links--show':openMenu}">
       <nuxt-link to="/matches">
         Matches
       </nuxt-link>
@@ -23,10 +23,21 @@
         Live
       </nuxt-link>
     </div>
+    <div
+        :class="{'navbar__menu': true, 'navbar__menu--open': openMenu}"
+        @click="openMenu = !openMenu"
+    >
+      <div class="navbar__burger" />
+    </div>
   </nav>
 </template>
 <script>
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  data () {
+    return {
+      openMenu: false
+    };
+  }
 };
 </script>
