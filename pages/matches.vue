@@ -82,7 +82,7 @@ export default {
   methods: {
     async getMatches () {
       try {
-        const res = await this.$axios.get(`https://api-nba-v1.p.rapidapi.com/games/date/${this.selectedDate.toISOString().split('T')[0]}`);
+        const res = await this.$axios.get(`/games/date/${this.selectedDate.toISOString().split('T')[0]}`);
         this.matches = res.data.api.games.map(match => new Match(match));
       } catch (e) {
         console.log(e);
