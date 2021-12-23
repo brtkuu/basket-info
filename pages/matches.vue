@@ -32,13 +32,19 @@
             {{ match.vTeam.shortName }}
           </p>
         </div>
-        <p class="matches__status">{{ match.status }}</p>
+        <p class="matches__status">
+          {{ match.status }}
+        </p>
         <p class="matches__points">
           {{ match.hTeam.points }} - {{ match.vTeam.points }}
         </p>
-        <button class="matches__details">
+        <nuxt-link
+            v-if="match.status === 'Finished'"
+            :to="`/game/details/${match.id}`"
+            class="matches__details"
+        >
           Details
-        </button>
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -85,6 +91,7 @@ export default {
         const res = await this.$axios.get(`/games/date/${this.selectedDate.toISOString().split('T')[0]}`);
         this.matches = res.data.api.games.map(match => new Match(match));
       } catch (e) {
+        // eslint-disable-next-line
         console.log(e);
       }
     },
