@@ -48,6 +48,7 @@
           class="white--text red darken-3"
           hide-default-footer
           :items-per-page="30"
+          :mobile-breakpoint="350"
       />
     </v-app>
   </div>
