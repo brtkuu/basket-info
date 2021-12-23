@@ -30,7 +30,9 @@
       </p>
     </div>
     <v-app>
-      <h2>Players stats</h2>
+      <h2 class="game-details__players-title">
+        Players stats
+      </h2>
       <v-tabs
           v-model="tab"
           color="#fff"
