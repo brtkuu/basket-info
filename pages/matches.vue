@@ -79,7 +79,8 @@ export default {
   data () {
     return {
       selectedDate: new Date(),
-      matches: []
+      matches: [],
+      picker: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)
     };
   },
   mounted () {
