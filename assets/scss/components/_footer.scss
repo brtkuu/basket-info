@@ -1,0 +1,12 @@
+.footer {
+  &__container {
+    background-color: $nba-red;
+    height: 50px;
+  }
+
+  &__text {
+    text-align: center;
+    line-height: 50px;
+    color: white;
+  }
+}
