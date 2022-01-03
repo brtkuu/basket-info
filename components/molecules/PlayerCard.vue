@@ -4,6 +4,7 @@
       <img
           :src="`${photoUrl}${player.lastName.substring(0, 5).toLowerCase()}${player.firstName.substring(0, 2).toLowerCase()}01.jpg`"
           class="player-card__image"
+          @error="$event.target.src='https://i.ibb.co/9cj28M4/blank-profile-pic.jpg'"
       >
       <p class="player-card__fullname">
         {{ player.firstName }} {{ player.lastName }}

@@ -8,6 +8,16 @@
       </div>
       <h1 class="team__info-name">
         {{ teamInfo.name }}
+        <i
+            v-if="favoritesTeams.includes(teamInfo.id)"
+            class="fas fa-star"
+            @click="removeFromFavoritesTeams(teamInfo.id)"
+        />
+        <i
+            v-else
+            class="far fa-star"
+            @click="addToFavoritesTeams(teamInfo.id)"
+        />
       </h1>
     </div>
     <h2 class="team__info-section">
@@ -177,15 +187,20 @@ export default {
       players: [],
       stats: new Stats(),
       lastGames: [],
-      tab: 0
+      tab: 0,
+      favoritesTeams: []
     };
   },
   computed: {
     favorites () {
-      return JSON.parse(localStorage.getItem('basketInfoFavorites')) || [];
+      return JSON.parse(localStorage.getItem('basketInfoFavoritesPlayers')) || [];
     }
   },
   async mounted () {
+    if (localStorage.getItem('basketInfoFavoritesTeams')) {
+      this.favoritesTeams = JSON.parse(localStorage.getItem('basketInfoFavoritesTeams'));
+    }
+
     await this.getTeam();
     await this.getPlayers();
     await this.getStats();
@@ -197,7 +212,8 @@ export default {
         const res = await this.$axios.get(`/teams/teamId/${this.$route.params.id}`);
         this.teamInfo = new Team(res.data.api.teams[0]);
       } catch (e) {
-        console.log(e);
+        // eslint-disable-next-line
+console.error(e);
       }
     },
     async getPlayers () {
@@ -205,16 +221,17 @@ export default {
         const res = await this.$axios.get(`/players/teamId/${this.$route.params.id}`);
         this.players = res.data.api.players.filter(player => player.leagues.standard && player.dateOfBirth && player.leagues.standard?.active).map(player => new Player(player));
       } catch (e) {
-        console.log(e);
+        // eslint-disable-next-line
+console.error(e);
       }
     },
     async getStats () {
       try {
         const res = await this.$axios.get(`/standings/standard/${2021}/teamId/${this.$route.params.id}`);
         this.stats = new Stats(res.data.api.standings[0]);
-        console.log(res);
       } catch (e) {
-        console.log(e);
+        // eslint-disable-next-line
+console.error(e);
       }
     },
     addToFavorites (id) {
@@ -223,7 +240,7 @@ export default {
 
       this.$forceUpdate();
 
-      localStorage.setItem('basketInfoFavorites', JSON.stringify(favorites));
+      localStorage.setItem('basketInfoFavoritesPlayers', JSON.stringify(favorites));
     },
     removeFromFavorites (id) {
       const index = this.favorites.findIndex(playerId => playerId === id);
@@ -231,14 +248,26 @@ export default {
 
       this.$forceUpdate();
 
-      localStorage.setItem('basketInfoFavorites', JSON.stringify(favorites));
+      localStorage.setItem('basketInfoFavoritesPlayers', JSON.stringify(favorites));
     },
     async getTeamGames () {
       const games = (await this.$axios.get(`/games/teamId/${this.$route.params.id}`)).data.api.games.filter(game => game.statusGame === 'Finished');
       for (let i = games.length - 1; i > games.length - 11; i--) {
-        console.log(new Match(games[i]));
         this.lastGames.push(new Match(games[i]));
       }
+    },
+    addToFavoritesTeams (id) {
+      this.favoritesTeams.push(id);
+
+      this.$forceUpdate();
+
+      localStorage.setItem('basketInfoFavoritesTeams', JSON.stringify(this.favoritesTeams));
+    },
+    removeFromFavoritesTeams (id) {
+      const index = this.favoritesTeams.findIndex(playerId => playerId === id);
+      this.favoritesTeams.splice(index, 1);
+
+      localStorage.setItem('basketInfoFavoritesTeams', JSON.stringify(this.favoritesTeams));
     }
   }
 };

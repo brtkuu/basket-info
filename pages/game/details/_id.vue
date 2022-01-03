@@ -153,7 +153,6 @@ export default {
       this.game = new Match(res[0]);
     },
     filterTeams () {
-      console.log(this.tab);
       if (this.tab === 0) {
         this.tableData = this.players.filter(player => player.teamId === this.game.hTeam.id);
       } else {

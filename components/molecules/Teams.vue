@@ -41,7 +41,8 @@ export default {
         const res = await this.$axios.get('/teams/league/standard');
         this.teams = res.data.api.teams.filter(team => parseInt(team.nbaFranchise) && team.logo).map(nbaTeam => new Team(nbaTeam));
       } catch (e) {
-        console.log(e);
+        // eslint-disable-next-line
+console.error(e);
       }
     }
   }

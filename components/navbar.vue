@@ -22,6 +22,9 @@
       <nuxt-link to="/standing">
         Standings
       </nuxt-link>
+      <nuxt-link to="/favorites">
+        Favorites
+      </nuxt-link>
     </div>
     <div
         :class="{'navbar__menu': true, 'navbar__menu--open': openMenu}"

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="standing__container">
     <v-app>
       <v-tabs
           v-model="tab"
@@ -18,8 +18,7 @@
           class="white--text red darken-3"
           hide-default-footer
           :items-per-page="30"
-      >
-      </v-data-table>
+      />
     </v-app>
   </div>
 </template>
@@ -98,7 +97,8 @@ export default {
           return b.winPerc - a.winPerc;
         });
       } catch (e) {
-        console.error(e);
+        // eslint-disable-next-line
+console.error(e);
       }
     }
   }
