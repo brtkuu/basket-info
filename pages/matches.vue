@@ -35,8 +35,17 @@
         <p class="matches__status">
           {{ match.status }}
         </p>
-        <p class="matches__points">
+        <p
+            v-if="match.hTeam.points && match.vTeam.points"
+            class="matches__points"
+        >
           {{ match.hTeam.points }} - {{ match.vTeam.points }}
+        </p>
+        <p
+            v-else
+            class="matches__points"
+        >
+          {{ new Date(match.start).getHours() }}:{{ new Date(match.start).getMinutes() ? new Date(match.start).getMinutes() : '00' }}
         </p>
         <nuxt-link
             v-if="match.status === 'Finished'"
@@ -58,6 +67,7 @@ class Match {
     this.hTeam = new Team(data?.hTeam);
     this.vTeam = new Team(data?.vTeam);
     this.status = data?.statusGame || '';
+    this.start = data?.startTimeUTC || '';
   }
 }
 
@@ -91,9 +101,13 @@ export default {
       try {
         const res = await this.$axios.get(`/games/date/${this.selectedDate.toISOString().split('T')[0]}`);
         this.matches = res.data.api.games.map(match => new Match(match));
+        this.matches.sort((a, b) => {
+          return new Date(a.start).getTime() - new Date(b.start).getTime();
+        });
       } catch (e) {
         // eslint-disable-next-line
-        console.log(e);
+        // eslint-disable-next-line
+console.error(e);
       }
     },
     changeDate (date) {
