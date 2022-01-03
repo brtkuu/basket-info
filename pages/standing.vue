@@ -89,7 +89,7 @@ export default {
     },
     async getStandings () {
       try {
-        const standings = await this.$axios.get(`/standings/standard/${new Date().getFullYear()}`);
+        const standings = await this.$axios.get(`/standings/standard/${2021}`);
         const teams = await this.$axios.get('/teams/league/standard');
 
         this.teams = standings.data.api.standings.map((standing) => {
