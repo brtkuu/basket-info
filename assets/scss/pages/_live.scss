@@ -7,11 +7,54 @@
     padding: 0 20px;
     border: 7px ridge rgba(37, 75, 157, 0.78);
     border-radius: 6px;
-     p {
+    grid-template-columns: 800px 800px;
+
+     h1 {
        width: 100%;
        text-align: center;
-       font-size: 48px;
+       font-size: 72px;
        font-weight: 00;
      }
+     
+  }
+  &__team-logo {
+    height: 125px;
+    width: 125px;
+    margin-bottom: 30px;
+
+    img {
+      object-fit: contain;
+    }
+  }
+  &__body {
+    display: grid;
+    grid-template-columns: 400px 400px;
+    justify-content: center;
+    justify-items: center;
+    p {
+      margin-top:20px;
+      width: 100%;
+      text-align: center;
+      font-size: 34px;
+      font-weight: 00;
+    }
+
+    @media (max-width: 785px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__single-match {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    max-width: 350px;
+    border: 1px solid black;
+    border-radius: 8px;
+
+    p {
+      text-align: center;
+    }
   }
 }
