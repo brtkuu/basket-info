@@ -30,35 +30,17 @@
         </v-carousel>
       </div>
     </v-app>
-    <div class="home__teams">
-      <div
-          v-for="team in teams"
-          :key="team.id"
-          class="home__logo-block"
-          @click="$router.push(`/team/${team.id}`)"
-      >
-        <div class="home__logo-container">
-          <img
-              :src="team.logo"
-              class="home__logo"
-          >
-        </div>
-        <p>{{ team.name }}</p>
-      </div>
-    </div>
+    <Teams />
   </div>
 </template>
 <script>
-class Team {
-  constructor (data) {
-    this.id = data?.teamId || '';
-    this.logo = data?.logo || '';
-    this.name = data?.fullName || '';
-  }
-}
+import Teams from '@/components/molecules/Teams';
 
 export default {
   name: 'Home',
+  components: {
+    Teams
+  },
   data () {
     return {
       carousel: 0,
@@ -66,25 +48,13 @@ export default {
         'https://digitteamsalsport.co/wp-content/uploads/2015/10/5181495847_420a196713_o.jpg',
         'https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_1300/v1613386565/yqq5ue9us6dw5ybdx47i.jpg',
         'https://cdn-wp.thesportsrush.com/2019/10/GettyImages-1070852540.jpg'
-      ],
-      teams: []
+      ]
     };
   },
   mounted () {
     setInterval(() => {
       this.carousel++;
     }, 3000);
-    this.getTeams();
-  },
-  methods: {
-    async getTeams () {
-      try {
-        const res = await this.$axios.get('/teams/league/standard');
-        this.teams = res.data.api.teams.filter(team => parseInt(team.nbaFranchise) && team.logo).map(nbaTeam => new Team(nbaTeam));
-      } catch (e) {
-        console.log(e);
-      }
-    }
   }
 };
 </script>

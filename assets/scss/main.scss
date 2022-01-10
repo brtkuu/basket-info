@@ -18,9 +18,13 @@
 @import './pages/live';
 @import './pages/matches';
 @import './pages//teams';
+@import './pages/standing';
+@import './pages/game-details';
+@import './pages/favorites';
 
 // components
 @import './components/navbar';
+@import './components/footer';
 
 // molecules 
 @import './molecules/player-card';

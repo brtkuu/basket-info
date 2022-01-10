@@ -21,6 +21,11 @@
       </nuxt-link>
       <nuxt-link to="/live">
         Live
+      <nuxt-link to="/standing">
+        Standings
+      </nuxt-link>
+      <nuxt-link to="/favorites">
+        Favorites
       </nuxt-link>
     </div>
     <div
