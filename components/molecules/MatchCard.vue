@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="matches__single-match">
     <div>
       <nuxt-link :to="`/team/${match.hTeam.id}`">
         <img
@@ -20,9 +20,6 @@
         {{ match.vTeam.shortName }}
       </p>
     </div>
-    <p class="matches__status">
-      {{ match.date.split('T')[0] }}
-    </p>
     <p class="matches__points">
       {{ match.hTeam.points }} - {{ match.vTeam.points }}
     </p>

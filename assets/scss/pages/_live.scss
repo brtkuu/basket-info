@@ -2,37 +2,21 @@
   &__container {
     padding: 0 20px;
   }
-  &__liveContainer {
-    margin: 20px;
-    padding: 0 20px;
-    border: 7px ridge rgba(37, 75, 157, 0.78);
-    border-radius: 6px;
-    grid-template-columns: 800px 800px;
 
-     h1 {
-       width: 100%;
-       text-align: center;
-       font-size: 72px;
-       font-weight: 00;
-     }
-     
-  }
-  &__team-logo {
-    height: 125px;
-    width: 125px;
-    margin-bottom: 30px;
-
-    img {
-      object-fit: contain;
-    }
+  &__title {
+    text-align: center;
+    font-style: italic;
+    width: 100%;
+    padding: 15px;
   }
   &__body {
     display: grid;
     grid-template-columns: 400px 400px;
     justify-content: center;
     justify-items: center;
+    padding: 20px;
     p {
-      margin-top:20px;
+      
       width: 100%;
       text-align: center;
       font-size: 34px;
@@ -52,7 +36,7 @@
     max-width: 350px;
     border: 1px solid black;
     border-radius: 8px;
-
+    
     p {
       text-align: center;
     }
