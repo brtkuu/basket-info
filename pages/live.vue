@@ -73,8 +73,10 @@ export default {
     };
   },
   async mounted () {
+    this.$store.commit('loader', true);
     await this.getLiveMatch();
     await this.getLastThreeMatches();
+    this.$store.commit('loader', false);
   },
   methods: {
     async getLiveMatch () {
