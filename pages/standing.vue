@@ -68,8 +68,10 @@ export default {
       ]
     };
   },
-  mounted () {
-    this.getStandings();
+  async mounted () {
+    this.$store.commit('loader', true);
+    await this.getStandings();
+    this.$store.commit('loader', false);
   },
   methods: {
     filterTeams (filter) {

@@ -21,6 +21,7 @@
 @import './pages/standing';
 @import './pages/game-details';
 @import './pages/favorites';
+@import './pages/players';
 
 // components
 @import './components/navbar';
@@ -30,3 +31,6 @@
 @import './molecules/player-card';
 @import './molecules/team-stats';
 @import './molecules/data-pickes';
+
+// atoms
+@import './atoms/loader';

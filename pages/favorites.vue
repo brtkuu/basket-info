@@ -85,6 +85,7 @@ export default {
     };
   },
   mounted () {
+    this.$store.commit('loader', true);
     if (localStorage.getItem('basketInfoFavoritesPlayers')) {
       this.favPlayersIds = JSON.parse(localStorage.getItem('basketInfoFavoritesPlayers'));
     }
@@ -100,6 +101,7 @@ export default {
     this.favTeamsIds.forEach(async (teamId) => {
       this.teams.push(await this.getTeam(teamId));
     });
+    this.$store.commit('loader', false);
   },
   methods: {
     async getPlayer (id) {

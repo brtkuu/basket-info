@@ -32,8 +32,10 @@ export default {
       teams: []
     };
   },
-  mounted () {
-    this.getTeams();
+  async mounted () {
+    this.$store.commit('loader', true);
+    await this.getTeams();
+    this.$store.commit('loader', false);
   },
   methods: {
     async getTeams () {
@@ -42,7 +44,7 @@ export default {
         this.teams = res.data.api.teams.filter(team => parseInt(team.nbaFranchise) && team.logo).map(nbaTeam => new Team(nbaTeam));
       } catch (e) {
         // eslint-disable-next-line
-console.error(e);
+        console.error(e);
       }
     }
   }
