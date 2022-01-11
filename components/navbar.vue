@@ -19,6 +19,9 @@
       <nuxt-link to="/teams">
         Teams
       </nuxt-link>
+      <nuxt-link to="/live">
+        Live
+      </nuxt-link>
       <nuxt-link to="/standing">
         Standings
       </nuxt-link>
