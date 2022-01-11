@@ -37,5 +37,26 @@
       padding: 0 20px;
       margin: 20px 0 10px 0;
     }
+
+    &-search {
+      font-size: 20px;
+    }
+
+    &-search-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-search-input {
+      border: none;
+      border-bottom: 1px solid black;
+      background: none;
+      padding: 5px;
+
+      &:active {
+        border: none;
+      }
+    }
   }
+
 }

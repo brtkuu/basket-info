@@ -93,8 +93,10 @@ export default {
       picker: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)
     };
   },
-  mounted () {
-    this.getMatches();
+  async mounted () {
+    this.$store.commit('loader', true);
+    await this.getMatches();
+    this.$store.commit('loader', false);
   },
   methods: {
     async getMatches () {
@@ -106,8 +108,7 @@ export default {
         });
       } catch (e) {
         // eslint-disable-next-line
-        // eslint-disable-next-line
-console.error(e);
+        console.error(e);
       }
     },
     changeDate (date) {

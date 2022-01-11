@@ -32,8 +32,10 @@ export default {
       teams: []
     };
   },
-  mounted () {
-    this.getTeams();
+  async mounted () {
+    this.$store.commit('loader', true);
+    await this.getTeams();
+    this.$store.commit('loader', false);
   },
   methods: {
     async getTeams () {

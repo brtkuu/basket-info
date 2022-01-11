@@ -18,22 +18,22 @@
         <span class="player-card__info-title">Age:</span> {{ Math.floor((new Date().getTime() - new Date(player.birthDate).getTime()) / 31556952000) }}
       </p>
       <p class="player-card__info">
-        <span class="player-card__info-title">Country:</span> {{ player.country }}
+        <span class="player-card__info-title">Country:</span> {{ player.country || '---' }}
       </p>
       <p class="player-card__info">
-        <span class="player-card__info-title">Height:</span> {{ player.height }} m
+        <span class="player-card__info-title">Height:</span> {{ player.height || '---' }} m
       </p>
       <p class="player-card__info">
-        <span class="player-card__info-title">Weight:</span> {{ player.weight }} kg
+        <span class="player-card__info-title">Weight:</span> {{ player.weight || '---' }} kg
       </p>
       <p class="player-card__info">
-        <span class="player-card__info-title">Drafted:</span> {{ player.nbaStart }}
+        <span class="player-card__info-title">Drafted:</span> {{ player.nbaStart || '---' }}
       </p>
       <p class="player-card__info">
         <span class="player-card__info-title">Experience:</span> {{ player.yearsAsPro }} years
       </p>
       <p class="player-card__info">
-        <span class="player-card__info-title">College:</span> {{ player.college }}
+        <span class="player-card__info-title">College:</span> {{ player.college || '---' }}
       </p>
       <i
           v-if="favorites"

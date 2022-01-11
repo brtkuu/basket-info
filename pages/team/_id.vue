@@ -41,6 +41,19 @@
       <h2 class="team__info-section">
         Roaster
       </h2>
+      <div class="team__info-search-container">
+        <label
+            class="team__info-label"
+        >
+          Find player
+          <input
+              v-model="playerFind"
+              type="text"
+              class="team__info-search-input"
+              @input="filterPlayers"
+          >
+        </label>
+      </div>
       <div
           v-if="players.length"
           class="team__players"
@@ -188,7 +201,9 @@ export default {
       stats: new Stats(),
       lastGames: [],
       tab: 0,
-      favoritesTeams: []
+      favoritesTeams: [],
+      playerFind: '',
+      allPlayers: []
     };
   },
   computed: {
@@ -197,6 +212,7 @@ export default {
     }
   },
   async mounted () {
+    this.$store.commit('loader', true);
     if (localStorage.getItem('basketInfoFavoritesTeams')) {
       this.favoritesTeams = JSON.parse(localStorage.getItem('basketInfoFavoritesTeams'));
     }
@@ -205,6 +221,7 @@ export default {
     await this.getPlayers();
     await this.getStats();
     await this.getTeamGames();
+    this.$store.commit('loader', false);
   },
   methods: {
     async getTeam () {
@@ -213,16 +230,17 @@ export default {
         this.teamInfo = new Team(res.data.api.teams[0]);
       } catch (e) {
         // eslint-disable-next-line
-console.error(e);
+        console.error(e);
       }
     },
     async getPlayers () {
       try {
         const res = await this.$axios.get(`/players/teamId/${this.$route.params.id}`);
         this.players = res.data.api.players.filter(player => player.leagues.standard && player.dateOfBirth && player.leagues.standard?.active).map(player => new Player(player));
+        this.allPlayers = this.players;
       } catch (e) {
         // eslint-disable-next-line
-console.error(e);
+        console.error(e);
       }
     },
     async getStats () {
@@ -231,7 +249,7 @@ console.error(e);
         this.stats = new Stats(res.data.api.standings[0]);
       } catch (e) {
         // eslint-disable-next-line
-console.error(e);
+        console.error(e);
       }
     },
     addToFavorites (id) {
@@ -268,6 +286,9 @@ console.error(e);
       this.favoritesTeams.splice(index, 1);
 
       localStorage.setItem('basketInfoFavoritesTeams', JSON.stringify(this.favoritesTeams));
+    },
+    filterPlayers () {
+      this.players = this.allPlayers.filter(player => `${player.firstName.toLowerCase()} ${player.lastName.toLowerCase()}`.includes(this.playerFind.toLowerCase()));
     }
   }
 };
