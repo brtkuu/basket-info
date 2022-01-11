@@ -81,18 +81,18 @@ export default {
       try {
         const res = await this.$axios.get('/games/live/');
         this.liveGames = res.data.api.games.map(game => new Match(game));
-        console.log(this.liveGames);
       } catch (e) {
-        console.log(e);
+        // eslint-disable-next-line
+        console.error(e);
       }
     },
     async getLastThreeMatches () {
       try {
         const res = await this.$axios.get(`https://api-nba-v1.p.rapidapi.com/games/date/${this.today.toISOString().split('T')[0]}`);
         this.lastGames = res.data.api.games.map(match => new Match(match));
-        console.log(this.lastGames);
       } catch (e) {
-        console.log(e);
+        // eslint-disable-next-line
+        console.error(e); 
       }
     }
   }

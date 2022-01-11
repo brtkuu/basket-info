@@ -15,13 +15,6 @@
     justify-content: center;
     justify-items: center;
     padding: 20px;
-    p {
-      
-      width: 100%;
-      text-align: center;
-      font-size: 34px;
-      font-weight: 00;
-    }
 
     @media (max-width: 785px) {
       grid-template-columns: 1fr;

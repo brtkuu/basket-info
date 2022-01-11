@@ -19,7 +19,9 @@
                 :src="match.hTeam.logo"
             >
           </nuxt-link>
-          <p>{{ match.hTeam.shortName }}</p>
+          <p class="matches__text">
+            {{ match.hTeam.shortName }}
+          </p>
         </div>
         <div>
           <nuxt-link :to="`/team/${match.vTeam.id}`">
@@ -28,7 +30,7 @@
                 :src="match.vTeam.logo"
             >
           </nuxt-link>
-          <p>
+          <p class="matches__text">
             {{ match.vTeam.shortName }}
           </p>
         </div>
