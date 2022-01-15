@@ -110,7 +110,7 @@ export default {
         return new Player(res.data.api.players[0]);
       } catch (e) {
         // eslint-disable-next-line
-console.error(e);
+        console.error(e);
       }
     },
     async getTeam (id) {
@@ -119,7 +119,7 @@ console.error(e);
         return new Team(res.data.api.teams[0]);
       } catch (e) {
         // eslint-disable-next-line
-console.error(e);
+        console.error(e);
       }
     },
     removeFromFavorites (id) {
