@@ -1,0 +1,62 @@
+.team {
+  &__players {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 15px;
+    padding: 10px 0px;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+
+    &-image {
+      height: 200px;
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        object-fit: contain;
+        max-width: 200px;
+        max-height: 200px;
+      }
+    }
+
+    &-name {
+      width: 100%;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    &-section {
+      padding: 0 20px;
+      margin: 20px 0 10px 0;
+    }
+
+    &-search {
+      font-size: 20px;
+    }
+
+    &-search-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-search-input {
+      border: none;
+      border-bottom: 1px solid black;
+      background: none;
+      padding: 5px;
+
+      &:active {
+        border: none;
+      }
+    }
+  }
+
+}

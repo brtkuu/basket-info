@@ -1,0 +1,75 @@
+.theme--dark.v-application {
+  background-color: white !important;
+  color: black !important;
+}
+
+.v-carousel {
+  height: 350px !important;
+  width: 600px !important;
+  border-radius: 5px;
+}
+
+.v-application--wrap {
+  min-height: auto !important;
+}
+
+.home {
+  &__container {
+    padding: 0 20px;
+  }
+
+  &__teams {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 50px 0;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    flex-wrap: wrap;
+
+    &-text {
+      max-width: 300px;
+      text-align: center;
+    }
+  }
+
+  &__slider-image {
+    height: 350px;
+    width: 600px;
+  }
+
+  &__logo {
+    max-height: 200px;
+    max-width: 200px;
+    object-fit: contain;
+
+    &-container {
+      width: 250px;
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-block {
+      display: flex;
+      justify-content: center;
+      width: 300px;
+      flex-wrap: wrap;
+      cursor: pointer;
+
+      p {
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 00;
+      }
+    }
+  }
+}

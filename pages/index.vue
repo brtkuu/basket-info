@@ -1,77 +1,60 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
+  <div class="home__container">
+    <v-app>
+      <div class="home__info">
+        <h2 class="home__info-text">
+          Follow nba games live, view statistics and stay up to date!
+        </h2>
+        <v-carousel v-model="carousel">
+          <v-carousel-item
+              v-for="photo in photos"
+              :key="photo"
           >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+            <v-sheet
+                tile
+            >
+              <v-row
+                  class="fill-height"
+                  align="center"
+                  justify="center"
+              >
+                <div class="text-h2">
+                  <img
+                      class="home__slider-image"
+                      :src="photo"
+                  >
+                </div>
+              </v-row>
+            </v-sheet>
+          </v-carousel-item>
+        </v-carousel>
+      </div>
+    </v-app>
+    <Teams />
+  </div>
 </template>
+<script>
+import Teams from '@/components/molecules/Teams';
+
+export default {
+  name: 'Home',
+  components: {
+    Teams
+  },
+  data () {
+    return {
+      carousel: 0,
+      photos: [
+        'https://digitteamsalsport.co/wp-content/uploads/2015/10/5181495847_420a196713_o.jpg',
+        'https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_1300/v1613386565/yqq5ue9us6dw5ybdx47i.jpg',
+        'https://cdn-wp.thesportsrush.com/2019/10/GettyImages-1070852540.jpg'
+      ]
+    };
+  },
+  mounted () {
+    setInterval(() => {
+      this.carousel++;
+    }, 3000);
+  }
+};
+</script>

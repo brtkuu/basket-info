@@ -1,0 +1,64 @@
+.player-card {
+  &__container {
+    border: 1px solid rgba(53, 53, 53, 0.5);
+    height: 330px;
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: $card-shadow;
+    position: relative;
+    border: 2px solid $nba-red;
+  }
+
+  &__image {
+    height: 120px;
+    width:  80px;
+  }
+
+  &__column {
+    display: flex;
+    height: 100%;
+    width: 60%;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &-image {
+      width: 35%;
+      height: 70%;
+      display: flex;
+      justify-content: center;
+
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  &__fullname {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  &__favorite {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: $nba-blue;
+    cursor: pointer;
+  }
+
+  &__info {
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    width: 100%;
+
+    &-title {
+      font-weight: 900;
+    }
+  }
+}

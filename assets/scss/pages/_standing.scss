@@ -1,0 +1,10 @@
+table {
+  border-collapse:separate; 
+  border-spacing:5em;
+}
+
+.standing {
+  &__container {
+    min-height: calc(100vh - 88px - 50px);
+  }
+}

@@ -1,0 +1,80 @@
+.matches {
+  &__container {
+    padding: 0 20px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 44px;
+    font-weight: 900;
+  }
+
+  &__team-logo {
+    height: 100px;
+    width: 100px;
+    margin-top: 20px;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: 400px 400px;
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
+
+    @media (max-width: 785px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__status {
+    font-weight: 900;
+    font-size: 24px;
+  }
+
+  &__single-match {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    max-width: 350px;
+    border: 1px solid black;
+    border-radius: 8px;
+    min-height: 400px;
+  }
+
+  &__text {
+    text-align: center;
+  }
+
+  &__details {
+    background-color: $nba-blue;
+    color: white;
+    width: 100%;
+    height: 60px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: none;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    line-height: 60px;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+
+  &__points {
+    width: 100%;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
